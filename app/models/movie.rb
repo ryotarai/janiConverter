@@ -3,6 +3,7 @@ require "jani/strip_maker/transcode_options"
 
 class Movie < ActiveRecord::Base
   has_many :strips
+  has_many :beacons
   validates_presence_of :uuid, :frame_width, :frame_height, :fps
   validates_uniqueness_of :uuid
 

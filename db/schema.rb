@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016182927) do
+ActiveRecord::Schema.define(version: 20141022142745) do
+
+  create_table "beacons", force: true do |t|
+    t.string   "label"
+    t.string   "url"
+    t.integer  "movie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beacons", ["movie_id", "label"], name: "index_beacons_on_movie_id_and_label", unique: true, using: :btree
 
   create_table "movies", force: true do |t|
     t.string   "uuid"
